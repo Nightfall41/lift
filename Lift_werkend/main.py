@@ -29,4 +29,8 @@ for x in range(0, aantal_liften):
     elevators.append(elevator)
 
 m = MainController(elevators)
+g = Generator(elevators)
+
+MainController.__setattr__('sweep', g.sweep)
+
 World(*elevatorsClass, m)
