@@ -6,7 +6,6 @@ class MainController(Module):
         self.elevator1 = elevators[0]
         self.elevator2 = elevators[1]
         self.elevator3 = elevators[2]
-
         Module.__init__(self)
         self.page('Main Controller')
         self.group('Run', True)
