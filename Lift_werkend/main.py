@@ -2,13 +2,18 @@ from SimPyLC import *
 from elevator import Elevator, Plotter
 from controller import MainController
 
+aantal_liften = int(input("Hoeveel liften?"))
+print()
 
-e1 = Elevator(1, 10, 10, False)  # Elevator(number, floors, floorheight, express lift?)
-e2 = Elevator(2, 4, 10, False)  # Elevator(number, floors, floorheight, express lift?)
-e3 = Elevator(3, 4, 10, False)  # Elevator(number, floors, floorheight, express lift?)
-e4 = Elevator(4, 5, 10, False)
-p1 = Plotter(1, e1)
-p2 = Plotter(2, e2)
-p3 = Plotter(3, e3)
-m = MainController(e1, e2, e3)
-World(e1, e2, e3, e4, p1, p2, p3, m)
+elevators=[]
+for x in range(0, aantal_liften):
+    floors=int(input("hoeveel vloeren heeft lift {} ?".format(x)))
+    print()
+    floorheight=int(input("hoogste verdieping die lift {} kan gaan ?".format(x)))
+    print()
+    expressLift=bool(input("is lift {} een express lift? voer 0 of 1 in. ".format(x)))
+    print()
+    elevators.append(Elevator(x,floors,floorheight,expressLift))
+
+m = MainController(elevators)
+World(*elevators, m)

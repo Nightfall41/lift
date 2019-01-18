@@ -2,9 +2,11 @@ from SimPyLC import *
 
 
 class MainController(Module):
-    def __init__(self, elevator):
-        for x in range(len(elevator)):
-            elevator[x]= ['elevator_'+str(x)]
+    def __init__(self, *elevators):
+        print(len(elevators))
+        self.elevator1 = elevators[0]
+        self.elevator2 = elevators[1]
+        self.elevator3 = elevators[2]
 
         Module.__init__(self)
         self.page('Main Controller')

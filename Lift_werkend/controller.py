@@ -2,10 +2,11 @@ from SimPyLC import *
 
 
 class MainController(Module):
-    def __init__(self, elevator1, elevator2, elevator3):
-        self.elevator1 = elevator1
-        self.elevator2 = elevator2
-        self.elevator3 = elevator3
+    def __init__(self, elevators):
+        self.elevator1 = elevators[0]
+        self.elevator2 = elevators[1]
+        self.elevator3 = elevators[2]
+
         Module.__init__(self)
         self.page('Main Controller')
         self.group('Run', True)
